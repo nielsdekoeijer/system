@@ -1,0 +1,3 @@
+Assumes you have 
+
+* `scrot`
