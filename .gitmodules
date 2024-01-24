@@ -7,3 +7,6 @@
 [submodule "dmenu"]
 	path = dmenu
 	url = git@github.com:nielsdekoeijer/dmenu.git
+[submodule "nvim"]
+	path = nvim
+	url = git@github.com:nielsdekoeijer/nvim.git
