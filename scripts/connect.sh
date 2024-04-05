@@ -10,7 +10,7 @@ echo "'read'..."
 read -p "Network: " NETWORK
 echo "'read' OK"
 echo "'iwctl station wlan connect $NETWORK'..."
-iwctl station wlan0 connect $NETWORK
+iwctl station wlan0 connect "$NETWORK"
 echo "'iwctl station wlan connect $NETWORK' OK"
 echo "'sudo /sbin/dhclient'..."
 sudo /sbin/dhclient
