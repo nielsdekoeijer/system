@@ -10,11 +10,11 @@ echo "'read'..."
 read -p "Network: " NETWORK
 echo "'read' OK"
 echo "'iwctl station wlan connect $NETWORK'..."
-iwctl station wlan0 connect "$NETWORK"
+# iwctl station wlan0 connect "$NETWORK"
 echo "'iwctl station wlan connect $NETWORK' OK"
 echo "'sudo /sbin/dhclient'..."
 sudo /sbin/dhclient
 echo "'sudo /sbin/dhclient' OK"
 echo "network login..."
-chromium captive.apple.com
+firefox captive.apple.com
 echo "network login OK"
