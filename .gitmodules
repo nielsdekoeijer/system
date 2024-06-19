@@ -10,3 +10,6 @@
 [submodule "nvim"]
 	path = nvim
 	url = git@github.com:nielsdekoeijer/nvim.git
+[submodule "font"]
+	path = font
+	url = git@github.com:nielsdekoeijer/font.git

@@ -112,6 +112,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
+    exec startx
+fi
+
 # Custom section, above is stock debian
 alias vi=nvim
 alias vim=nvim
+export PATH=$PATH:/usr/local/bin/

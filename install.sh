@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 # Check for 'all' argument
 if [ "$1" = "all" ]; then
