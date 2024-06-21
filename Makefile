@@ -1,8 +1,8 @@
-.PHONY: all install check_root link_xinitrc link_nvim link_bashrc build_dwm build_st build_dmenu update_fonts
+.PHONY: all install check_root link_xinitrc link_nvim link_bashrc build_dwm build_st build_dmenu update_fonts run_scripts_makefile
 
 all: install
 
-install: check_root link_xinitrc link_nvim link_bashrc build_dwm build_st build_dmenu update_fonts
+install: check_root link_xinitrc link_nvim link_bashrc build_dwm build_st build_dmenu update_fonts run_scripts_makefile
 
 check_root:
 	@if [ "$$(id -u)" -ne 0 ]; then \
@@ -35,12 +35,7 @@ build_dmenu:
 	@echo "Building dmenu"
 	@cd dmenu && make clean && make install && make clean
 
-update_fonts: update_git_submodules link_fonts
-
-update_git_submodules:
-	@echo "Updating git submodules"
-	@git submodule init
-	@git submodule update --recursive
+update_fonts: link_fonts
 
 link_fonts:
 	@echo "Linking fonts"
@@ -48,4 +43,8 @@ link_fonts:
 	@ln -sf $(realpath font)/* "$(HOME)/.fonts/"
 	@echo "Updating font cache"
 	@fc-cache -fv
+
+run_scripts_makefile:
+	@echo "Running Makefile in scripts directory"
+	@cd scripts && make
 
