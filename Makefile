@@ -1,23 +1,17 @@
-.PHONY: all install check_root link_xinitrc link_nvim link_bashrc build_dwm build_st build_dmenu update_fonts run_scripts_makefile
+.PHONY: all install link_xinitrc link_nvim link_bashrc build_dwm build_st build_dmenu update_fonts run_scripts_makefile
 
 all: install
 
-install: check_root link_xinitrc link_nvim link_bashrc build_dwm build_st build_dmenu update_fonts run_scripts_makefile
-
-check_root:
-	@if [ "$$(id -u)" -ne 0 ]; then \
-		echo "This script must be run as root. Exiting."; \
-		exit 1; \
-	fi
+install: link_xinitrc link_nvim link_bashrc build_dwm build_st build_dmenu update_fonts run_scripts_makefile
 
 link_xinitrc:
 	@echo "Linking .xinitrc"
 	@ln -sf "$(realpath .xinitrc)" "$(HOME)/.xinitrc"
 
 link_nvim:
-	@echo "Linking .config/nvim"
+	@echo "Linking $(realpath ./nvim)   $(HOME)/.config/nvim"
 	@mkdir -p "$(HOME)/.config"
-	@ln -sf "$(realpath nvim)" "$(HOME)/.config/nvim"
+	@ln -sf "$(realpath ./nvim)" "$(HOME)/.config/nvim"
 
 link_bashrc:
 	@echo "Linking .bashrc"
@@ -25,15 +19,15 @@ link_bashrc:
 
 build_dwm:
 	@echo "Building dwm"
-	@cd dwm && make clean && make install && make clean
+	@cd dwm && make clean && sudo make install && make clean
 
 build_st:
 	@echo "Building st"
-	@cd st && make clean && make install && make clean
+	@cd st && make clean && sudo make install && make clean
 
 build_dmenu:
 	@echo "Building dmenu"
-	@cd dmenu && make clean && make install && make clean
+	@cd dmenu && make clean && sudo make install && make clean
 
 update_fonts: link_fonts
 
