@@ -1,0 +1,10 @@
+config.h
+dmenu
+dmenu-center-4.8.diff
+dmenu-center-5.2.diff
+dmenu.o
+drw.o
+stest
+stest.o
+util.o
+
