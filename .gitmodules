@@ -1,15 +1,3 @@
-[submodule "st"]
-	path = st
-	url = git@github.com:nielsdekoeijer/st.git
-[submodule "dwm"]
-	path = dwm
-	url = git@github.com:nielsdekoeijer/dwm.git
-[submodule "dmenu"]
-	path = dmenu
-	url = git@github.com:nielsdekoeijer/dmenu.git
-[submodule "nvim"]
-	path = nvim
-	url = git@github.com:nielsdekoeijer/nvim.git
 [submodule "font"]
 	path = font
 	url = git@github.com:nielsdekoeijer/font.git
