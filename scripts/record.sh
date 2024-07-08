@@ -4,6 +4,8 @@ set -e
 # Function to display the last message
 cleanup() {
     echo "Recording stopped. The output is saved to $MOV"
+    echo "Converting the result now... (cntrl+c to kill)"
+    ffmpeg -i $MOV -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p "$MOV"
     exit 0
 }
 
@@ -27,7 +29,9 @@ echo "Resolution: $RESOLUTION"
 ffmpeg -y \
     -video_size $RESOLUTION \
     -framerate 30 -f x11grab -i :0.0+$(xrandr | grep "$ACTIVE_MONITOR connected" | grep -oP '(?<=\+)\d+\+\d+' | head -n 1 | tr '+' ',') \
+    -f pulse -ac 2 -i default \
     $MOV | tee -a $RECORDING_FILENAME.log
+
 
 # If the script reaches this point, it means recording finished successfully
 cleanup

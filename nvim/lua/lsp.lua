@@ -1,5 +1,5 @@
 -- lua lsps
-require 'lsp.clangd'
+-- require 'lsp.clangd'
 require 'lsp.lua'
 require 'lsp.rust_analyzer'
 require 'lsp.zig'
