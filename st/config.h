@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char* font = "Comic Code:pixelsize=12:antialias=true:autohint=true";
-static int borderpx = 2;
+static char* font = "Comic Code:pixelsize=20:antialias=true:autohint=true";
+static int borderpx = 8;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -74,7 +74,7 @@ static unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-char* termname = "st-256color";
+char* termname = "xterm";
 
 /*
  * spaces per tab
@@ -91,30 +91,47 @@ char* termname = "st-256color";
  *
  *	stty tabs
  */
-unsigned int tabspaces = 8;
+unsigned int tabspaces = 4;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char* colorname[] = {
     /* 8 normal colors */
-    "black", "red3", "green3", "yellow3", "blue2", "magenta3", "cyan3", "gray90",
+    "#070510", /* black   */
+    "#ff5874", /* red     */
+    "#addb67", /* green   */
+    "#ecc48d", /* yellow  */
+    "#be9af7", /* blue    */
+    "#FD9720", /* magenta */
+    "#A1EFE4", /* cyan    */
+    "#645775", /* gray90  */
 
     /* 8 bright colors */
-    "gray50", "red", "green", "yellow", "#5c5cff", "magenta", "cyan", "white",
+    "#E5DFEF", /* bright black  */
+    "#ec5f67", /* bright red    */
+    "#d7ffaf", /* bright green  */
+    "#fbec9f", /* bright yellow */
+    "#6690c4", /* bright blue   */
+    "#ffbe00", /* bright magenta*/
+    "#54CED6", /* bright cyan   */
+    "#e7d3fb", /* white         */
 
     [255] = 0,
 
     /* more colors can be added after 255 to use with DefaultXX */
-    "#cccccc", "#555555", "gray90", /* default foreground colour */
-    "black", /* default background colour */
+    "#211c2f", /* 256: default foreground color */
+    "#e7c3fb", /* 257: default background color */
+    "#5f7e97", /* 258: cursor color */
+    "#e7c3fb", /* 259: reverse cursor color */
 };
+
 
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
 unsigned int defaultfg = 258;
-unsigned int defaultbg = 259;
-unsigned int defaultcs = 256;
+unsigned int defaultbg = 256;
+unsigned int defaultcs = 257;
 static unsigned int defaultrcs = 257;
 
 /*

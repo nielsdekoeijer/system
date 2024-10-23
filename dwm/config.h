@@ -1,22 +1,30 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx = 1; /* border pixel of windows */
-static const unsigned int snap = 32; /* snap pixel */
-static const int showbar = 1; /* 0 means no bar */
-static const int topbar = 1; /* 0 means bottom bar */
-static const char* fonts[] = { "Comic Code:size=10" };
-static const char dmenufont[] = "Comic Code:size=10";
-static const char col_gray1[] = "#222222";
-static const char col_gray2[] = "#444444";
-static const char col_gray3[] = "#bbbbbb";
-static const char col_gray4[] = "#eeeeee";
-static const char col_cyan[] = "#005577";
-static const char* colors[][3] = {
-    /*               fg         bg         border   */
-    [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-    [SchemeSel] = { col_gray4, col_cyan, col_cyan },
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int snap      = 32;       /* snap pixel */
+static const int showbar            = 1;        /* 0 means no bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
+static const char *fonts[]          = { "Comic Code:size=10" };
+static const char dmenufont[]       = "Comic Code:size=10";
+
+/* Color scheme based on the provided Aurora theme */
+static const char col_fg[]          = "#e7c3fb";  /* Foreground */
+static const char col_bg[]          = "#211c2f";  /* Background */
+static const char col_cursor[]      = "#5f7e97";  /* Cursor */
+static const char col_border[]      = "#070510";  /* Border (color0) */
+static const char col_sel[]         = "#be9af7";  /* Selected window (color4) */
+static const char col_sel_text[]    = "#211c2f";  /* Selected text background */
+static const char col_text[]        = "#645775";  /* General text color (color7) */
+static const char col_highlight[]   = "#ecc48d";  /* Highlight color (color3) */
+
+/* Colors array [Foreground, Background, Border] */
+static const char *colors[][3]      = {
+    /*               fg           bg           border   */
+    [SchemeNorm] = { col_text,     col_bg,      col_border },   /* Normal */
+    [SchemeSel]  = { col_fg,       col_sel,     col_sel },      /* Selected */
 };
+
 
 /* tagging */
 static const char* tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -65,14 +73,14 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 
 static const char* dmenucmd[] = {
-    "dmenu_run", //
-    "-m", dmenumon, //
-    "-fn", dmenufont, //
-    "-nb", col_gray1, //
-    "-nf", col_gray3, //
-    "-sb", col_cyan, //
-    "-sf", col_gray4, //
-    NULL //
+    "dmenu_run", 
+    "-m", dmenumon, 
+    "-fn", dmenufont, 
+    "-nb", col_bg,     /* Normal background (dark) */
+    "-nf", col_fg,     /* Normal foreground (light) */
+    "-sb", col_sel,    /* Selected background (highlight) */
+    "-sf", col_sel_text,  /* Selected foreground (dark text on highlight) */
+    NULL
 };
 static const char* termcmd[] = {
     "st", //

@@ -84,9 +84,10 @@ return {
                 ['<C-y>'] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ['<Tab>'] = cmp.mapping(function(fallback)
-                        _ = fallback
                         if cmp.visible() then
                             cmp.select_next_item()
+                        else
+                            fallback()
                         end
                     end, { "i", "s" })
             }),
