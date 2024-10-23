@@ -83,6 +83,12 @@ return {
                 ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
                 ['<C-y>'] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
+                ['<Tab>'] = cmp.mapping(function(fallback)
+                        _ = fallback
+                        if cmp.visible() then
+                            cmp.select_next_item()
+                        end
+                    end, { "i", "s" })
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
