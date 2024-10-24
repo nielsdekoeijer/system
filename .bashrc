@@ -114,6 +114,7 @@ if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
 fi
 
 # Custom section, above is stock debian
+alias ls="ls -lah --color=auto"
 alias vi=nvim
 alias vim=nvim
 export PATH=$PATH:/usr/local/bin/
