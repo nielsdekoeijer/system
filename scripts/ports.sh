@@ -9,5 +9,5 @@ SUBNET=$(echo $IP | awk -F. '{print $1"."$2"."$3".0/24"}')
 
 # Perform nmap scan
 echo "Running on $SUBNET..."
-nmap -p 22 --open $SUBNET
+nmap -p 22 -T 5 --open $SUBNET
 

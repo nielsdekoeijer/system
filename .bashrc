@@ -56,7 +56,7 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-PS1="\[\e[1;32m\]\u\[\e[0m\]@\[\e[1;31m\]void\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ "
+PS1="\[\e[1;32m\]\u\[\e[0m\]@\[\e[1;31m\]$HOSTNAME\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ "
 
 unset color_prompt force_color_prompt
 
